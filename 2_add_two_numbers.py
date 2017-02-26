@@ -37,26 +37,23 @@ class Solution:
         carry = 0
         v_sum = 0
         rlist = []
-        while l1 != [] or l2 != []:
-            v1 = l1[0]
-            v2 = l2[0]
-            v_sum = v1 + v2
-            carry = v_sum % 10
-            if carry == 1:
-                left = v_sum / 10
-                rlist = rlist.append(left)
-            rlist = rlist.append(v_sum)
+        while l1 != [] or l2 != [] or carry != 0 :
+            v1 = l1[0] if l1!=[] else 0
+            v2 = l2[0] if l2!=[] else 0
+            v_sum = v1 + v2 + carry
+            num = v_sum % 10
+            rlist.append(num)
+            carry = v_sum / 10
+
 
             l1 = l1[1:]
             l2 = l2[1:]
 
         return rlist
 
-l1 = [1,3,5]
-l2 = [2,4,6]
+l1 = [1,3,6]
+l2 = [2,8,7,9]
 so = Solution()
 print so.addTwoNumbers(l1, l2)
-
-
 
 

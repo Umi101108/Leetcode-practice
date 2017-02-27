@@ -51,7 +51,7 @@ class Solution:
 
         return rlist
 
-l1 = [1,3,6]
+l1 = [1,5,8]
 l2 = [2,8,7,9]
 so = Solution()
 print so.addTwoNumbers(l1, l2)

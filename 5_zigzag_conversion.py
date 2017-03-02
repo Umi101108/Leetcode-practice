@@ -13,7 +13,7 @@ convert("PAYPALISHIRING", 3) should return "PAHNAPLSIIGYIR".
 
 class Solution(object):
 	def convert(self, s, numRows):
-		l = [[]] * numRows
+		l = [[] for i in range(numRows)]
 		for i in range(numRows):
 			l[i].append(i)
 			

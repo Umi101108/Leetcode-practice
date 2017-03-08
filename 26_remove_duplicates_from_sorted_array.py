@@ -27,6 +27,7 @@ class Solution(object):
 		return new_length
 
 
+
 s = [1,1,2,2,3,3,3,4]
 so = Solution()
 print so.removeDuplicates(s)

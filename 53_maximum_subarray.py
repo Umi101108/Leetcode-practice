@@ -15,8 +15,8 @@ class Solution(object):
 		for num in nums[1:]:
 			curSum = max(num, curSum+num)
 			maxSum = max(curSum, maxSum)
-
 		return maxSum
+		
 
 nums = [6, -3, 3, 8, -4, 1, -9, 5]
 so = Solution()

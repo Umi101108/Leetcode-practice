@@ -18,16 +18,26 @@ class Solution(object):
 		:type val: int
 		:rtype: int
 		"""
-		if not nums:
-			return 0
-		new_length = len(nums)
-		for i in range(len(nums)):
-			if nums[i] == val:
-				new_length -= 1
+		# if not nums:
+		# 	return 0
+		# new_length = len(nums)
+		# for i in range(len(nums)):
+		# 	if nums[i] == val:
+		# 		new_length -= 1
 
-		return new_length
+		# return new_length
 
-nums = [1,2,2,3,5,6,5]
+		start, end = 0, len(nums)-1
+		while start <= end:
+			if nums[start] == val:
+				nums[start], nums[end], end = nums[end], nums[start], end-1
+			else:
+				start += 1
+
+		print nums
+		return start
+
+nums = [1,2,2,3,5,6,5,2]
 val = 2
 so = Solution()
 print so.removeElement(nums, val)

@@ -39,8 +39,6 @@ class Solution(object):
 
 
 
-print chr(ord('1') - ord('0') + ord('2'))
-
 num1 = '123'
 num2 = '2239'
 so = Solution()

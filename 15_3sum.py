@@ -8,23 +8,43 @@ class Solution(object):
 		:type nums: List[int]
 		:rtypr: List[List[int]]
 		"""
-		distinct_nums = sorted(list(nums))
-		if len(distinct_nums) < 3:
-			return []
-		result = []
-		# for i in range(len(distinct_nums)-2):
-		# 	for j in range(i+1, len(distinct_nums)-1):
-		# 		if -(distinct_nums[i] + distinct_nums[j]) in distinct_nums[j+1:] and -(distinct_nums[i] + distinct_nums[j]) >= distinct_nums[j] :
-		# 			add = [distinct_nums[i], distinct_nums[j], -(distinct_nums[i] + distinct_nums[j])]
+		# distinct_nums = sorted(list(nums))
+		# if len(distinct_nums) < 3:
+		# 	return []
+		# result = []
+		# for i in range(len(distinct_nums)):
+		# 	for j in range(len(distinct_nums)-i):
+		# 		if - distinct_nums[-j] - distinct_nums[i] in distinct_nums[i+1:-j]:
+		# 			add = [distinct_nums[i], - distinct_nums[-j] - distinct_nums[i], distinct_nums[-j]]
 		# 			if add not in result:
 		# 				result.append(add)
-		for i in range(len(distinct_nums)):
-			for j in range(len(distinct_nums)-i):
-				if - distinct_nums[-j] - distinct_nums[i] in distinct_nums[i+1:-j]:
-					add = [distinct_nums[i], - distinct_nums[-j] - distinct_nums[i], distinct_nums[-j]]
-					if add not in result:
-						result.append(add)
-		return result
+		# return result
+
+		res = []
+		nums.sort()
+		for i in xrange(len(nums)-2):
+			if i > 0 and nums[i] == nums[i-1]:
+				continue
+			l, r = i+1, len(nums)-1
+			while l < r:
+				s = nums[i] + nums[l] + nums[r]
+				if s < 0:
+					l += 1
+				elif s > 0:
+					r -= 1
+				else:
+					res.append((nums[i], nums[l], nums[r]))
+					while l < r and nums[l] == nums[l+1]:
+						l += 1
+					while l < r and nums[r] == nums[r-1]:
+						r -= 1
+					l += 1
+					r -= 1
+		return res
+
+
+
+
 
 # nums = [1, 4, -4, 6, 0, 3, 7, 1]
 # nums = [0, 0 ,0]

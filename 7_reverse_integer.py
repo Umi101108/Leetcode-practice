@@ -10,6 +10,7 @@ Note:
 The input is assumed to be a 32-bit signed integer. Your function should return 0 when the reversed integer overflows.
 """
 
+
 class Solution(object):
 	def reverse(self, x):
 		"""
@@ -18,13 +19,14 @@ class Solution(object):
 		"""
 		strx = str(x)
 		if strx[0] =='-':
-			if int(strx[1:][::-1]) > 2147483647:
+			if int(strx[1:][::-1]) > 2**31-1:
 				return 0
 			return int('-' + strx[1:][::-1])
 		else:
-			if int(strx[::-1]) > 2147483647:
+			if int(strx[::-1]) > 2**31-1:
 				return 0
 			return int(strx[::-1])
+
 
 x = -2147483648
 so = Solution()

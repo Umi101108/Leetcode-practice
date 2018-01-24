@@ -10,21 +10,21 @@ class Solution(object):
         :type s: str
         :rtype: bool
         """
+
         stack = []
-        dict = {"]": "[", "}": "{", ")": "("}
+        dict = {'(': ')', '[': ']', '{': '}'}
         for char in s:
-            if char in dict.values():
+            if char in dict.keys():
                 stack.append(char)
-            elif char in dict.keys():
-                if stack == [] or dict[char] != stack.pop():
+            elif char in dict.values():
+                if stack==[] or dict[stack.pop()] != char:
                     return False
             else:
                 return False
-            # print stack
         return stack == []
 
 
-s = "()[]{}"
+s = "]"
 so = Solution()
 print so.isValid(s)
 

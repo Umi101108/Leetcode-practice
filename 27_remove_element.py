@@ -8,7 +8,7 @@ The order of elements can be changed. It doesn't matter what you leave beyond th
 Example:
 Given input array nums = [3,2,2,3], val = 3
 
-Your function should return length = 2, with the first two elements of nums being 
+Your function should return length = 2, with the first two elements of nums being
 """
 
 class Solution(object):
@@ -18,14 +18,6 @@ class Solution(object):
 		:type val: int
 		:rtype: int
 		"""
-		# if not nums:
-		# 	return 0
-		# new_length = len(nums)
-		# for i in range(len(nums)):
-		# 	if nums[i] == val:
-		# 		new_length -= 1
-
-		# return new_length
 
 		start, end = 0, len(nums)-1
 		while start <= end:
@@ -36,6 +28,7 @@ class Solution(object):
 
 		print nums
 		return start
+
 
 nums = [1,2,2,3,5,6,5,2]
 val = 2

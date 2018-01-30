@@ -16,15 +16,8 @@ class Solution(object):
 		:type nums: List[int]
 		:rtype: int
 		"""
-		if not nums:
-			return 0
-		# new_length = 1
-		# current = nums[0]
-		# for i in range(len(nums)):
-		# 	if current != nums[i]:
-		# 		new_length += 1
-		# 		current = nums[i]
-		# return new_length
+		# if not nums:
+		# 	return 0
 
 		newTail = 0
 
@@ -32,11 +25,11 @@ class Solution(object):
 			if nums[i] != nums[newTail]:
 				newTail += 1
 				nums[newTail] = nums[i]
-
+		print nums
 		return newTail+1
 
 
 
-s = [1,1,2,2,3,3,3,4]
+s = [1,1,2,2,3,3,3,4,5,5]
 so = Solution()
 print so.removeDuplicates(s)

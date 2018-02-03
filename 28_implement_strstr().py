@@ -20,7 +20,7 @@ class Solution(object):
 
 
 
-haystack = ''
+haystack = 'bbabcd'
 needle = 'abc'
 so = Solution()
 print so.strStr(haystack, needle)

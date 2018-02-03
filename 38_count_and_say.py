@@ -10,29 +10,27 @@ Given an integer n, generate the nth sequence.
 Note: The sequence of integers will be represented as a string.
 """
 
-class Solution(object):
-	def countAndSay(self, n):
-		"""
-		:type n: int
-		:rtype: str
-		"""
-		s = '1'
-		for _ in range(n-1):
-			r = []
-			index = 0
-			for i in range(len(s)):
-				if s[i]!=s[index]:
-					r.append(str(i-index))
-					r.append(s[index])
-					index = i
-			r.append(str(len(s)-index))
-			r.append(s[index])
+# class Solution(object):
+# 	def countAndSay(self, n):
+# 		"""
+# 		:type n: int
+# 		:rtype: str
+# 		"""
+# 		s = '1'
+# 		for _ in range(n-1):
+# 			r = []
+# 			index = 0
+# 			for i in range(len(s)):
+# 				if s[i]!=s[index]:
+# 					r.append(str(i-index))
+# 					r.append(s[index])
+# 					index = i
+# 			r.append(str(len(s)-index))
+# 			r.append(s[index])
 
-			s =  ''.join(r)
-			print s
-		return s
-
-		
+# 			s =  ''.join(r)
+# 			print s
+# 		return s
 
 # class Solution(object):
 #     def countAndSay(self, n):
@@ -55,6 +53,26 @@ class Solution(object):
 #             temp.append(s[-1])
 #             s = ''.join(temp)
 #         return s
+
+class Solution(object):
+	def countAndSay(self, n):
+		"""
+		:type n: int
+		:rtype: str
+		"""
+		s = '1'
+		for _ in xrange(n-1):
+			r = ''
+			count = 1
+			for i in xrange(1, len(s)):
+				if s[i] == s[i-1]:
+					count += 1
+				else:
+					r += str(count) + s[i-1]
+					count = 1
+			r += str(count) + s[-1]
+			s = r
+		return s
 
 n = 10
 so = Solution()

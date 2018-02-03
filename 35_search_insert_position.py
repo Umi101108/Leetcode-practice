@@ -20,13 +20,13 @@ class Solution(object):
 		"""
 		index = 0
 		for i in range(len(nums)):
-			# if nums[i]<target:
-			# 	index += 1
 			if nums[i] >= target:
-				return i
+				return index
+			else:
+				index += 1
 		return index
 
 nums = [1, 3, 5, 6]
-target = 5
+target = 7
 so = Solution()
 print so.searchInsert(nums, target)

@@ -17,7 +17,6 @@ class Solution(object):
             if digits[l-i-1] < 9:
                 digits[l-i-1] += 1
                 break
-
             digits[l-i-1] = 0
 
         if digits[0] == 0:
@@ -25,7 +24,7 @@ class Solution(object):
         return digits
 
 
-digits = [9, 9, 9]
+digits = [9, 8, 8]
 
 so = Solution()
 print so.plusOne(digits)

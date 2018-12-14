@@ -16,8 +16,18 @@ class Solution(object):
                 if nums[i] == target - nums[j] :
                     return [i, j]
 
+    def twoSum2(self, nums, target):
+        if len(nums)<=1:
+            return False
+        buff_dict = {}
+        for i in range(len(nums)):
+            if nums[i] in buff_dict:
+                return [buff_dict[nums[i]], i]
+            else:
+                buff_dict[target-nums[i]] = i
+
 
 nums = [20, 18, 12, 14]
 target = 26
 so = Solution()
-print so.twoSum(nums, target)
+print so.twoSum2(nums, target)
